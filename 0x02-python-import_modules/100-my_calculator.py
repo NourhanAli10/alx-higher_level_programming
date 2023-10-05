@@ -5,8 +5,7 @@ length = len(sys.argv)
 if length != 4:
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
     exit(1)
- 
-operator = sys.argv[2] 
+operator = sys.argv[2]
 a = int(sys.argv[1])
 b = int(sys.argv[3])
 if length == 4:
@@ -21,5 +20,3 @@ if length == 4:
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
-        
-    
