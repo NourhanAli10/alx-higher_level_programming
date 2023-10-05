@@ -5,6 +5,3 @@ if __name__ == "__main__":
     for file in files:
         if file[:2] != '__' and file[-1:-3] != '__':
             print("{}".format(file))
-    
-    
-    
