@@ -5,8 +5,11 @@ can be used to retrieve a list of attributes and methods
 of any Python object.
 """
 
+
 class MyList(list):
     """Class with method print_sorted"""
+    pass
+
     def print_sorted(self):
-        """Methot that sorted a list"""        
+        """Methot that sorted a list"""
         print(sorted(list(self)))
