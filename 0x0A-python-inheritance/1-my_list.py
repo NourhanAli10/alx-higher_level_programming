@@ -1,15 +1,9 @@
 #!/usr/bin/python3
-"""
-This module provides a single function 'lookup' that
-can be used to retrieve a list of attributes and methods
-of any Python object.
-"""
+"""MyList module"""
 
 
 class MyList(list):
-    """Class with method print_sorted"""
-    pass
-
+    """MyList class - Inherits from list"""
     def print_sorted(self):
-        """Methot that sorted a list"""
-        print(sorted(list(self)))
+        """Prints a sorted list"""
+        print(sorted(self))
