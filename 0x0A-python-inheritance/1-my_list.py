@@ -6,7 +6,7 @@ of any Python object.
 """
 
 class MyList(list):
-    
+    """Class with method print_sorted"""
     def print_sorted(self):
-        sorted_list = sorted(list)
-        return sorted_list
+        """Methot that sorted a list"""        
+        print(sorted(list(self)))
