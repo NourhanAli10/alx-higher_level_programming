@@ -15,50 +15,53 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
         
 
-    # getter methods
-    def get_width(self):
+    @property
+    def width(self):
         return self.__width
-
-    def get_height(self):
-        return self.__height
-
-    def get_x(self):
-        return self.__x
-
-    def get_y(self):
-        return self.__y
-
-    # setter method
-    def set_width(self, value):
+    
+    @width.setter
+    def width(self, value):
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
-
-
-    def set_height(self, value):
+        
+    @property
+    def height(self):
+        return self.__height
+    @height.setter
+    def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
-
-
+    @property
+    def x(self):
+        return self.__x
+    
+    @x.setter
     def set_x(self, value):
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
-
-
-    def set_y(self, value):
+    
+    @property
+    def y(self):
+        return self.__y
+    
+    @y.setter
+    def y(self, value):
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+        
+        
 
     def area(self):
         return self.__width * self.__height
@@ -69,4 +72,3 @@ class Rectangle(Base):
                 print("#", end="")
             print(" ")
             
-
