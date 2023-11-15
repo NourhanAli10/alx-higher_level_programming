@@ -20,4 +20,16 @@ class TestRectangle(unittest.TestCase):
     def test__with_width_height(self):
         obj = Rectangle(width=5, height=10)
         self.assertEqual(obj.x, 0)
+        
+    def test_errors(self):
+        obj = Rectangle("5", 10)
+        self.assertRaises(TypeError)
+    
+    def test_errors(self):
+        obj = Rectangle(5, "10")
+        self.assertRaises(TypeError)
+        
+    def test_errors(self):
+        obj = Rectangle(0, 10)
+        self.assertRaises(ValueError)
     
