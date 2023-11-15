@@ -140,6 +140,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(my_rectangle.width, 30)
         self.assertEqual(my_rectangle.height, 40)
         
+    #task 13    
+    def test_dictionary(self):
+        
+        
 
 if __name__ == '__main__':
     unittest.main()
