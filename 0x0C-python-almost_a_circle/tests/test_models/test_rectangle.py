@@ -142,7 +142,34 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(my_rectangle.height, 40)
         
     #task 13    
-    def test_dictionary(self):
+    def test_M_to_dictionary(self):
+        '''Tests to_dictionary() signature:'''
+        with self.assertRaises(TypeError) as e:
+            Rectangle.to_dictionary()
+        s = "to_dictionary() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
+
+        r = Rectangle(1, 2)
+        d = {'x': 0, 'y': 0, 'width': 1, 'id': 1, 'height': 2}
+        self.assertEqual(r.to_dictionary(), d)
+
+        r = Rectangle(1, 2, 3, 4, 5)
+        d = {'x': 3, 'y': 4, 'width': 1, 'id': 5, 'height': 2}
+        self.assertEqual(r.to_dictionary(), d)
+
+        r.x = 10
+        r.y = 20
+        r.width = 30
+        r.height = 40
+        d = {'x': 10, 'y': 20, 'width': 30, 'id': 5, 'height': 40}
+        self.assertEqual(r.to_dictionary(), d)
+
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertNotEqual(r1, r2)
         
         
 
