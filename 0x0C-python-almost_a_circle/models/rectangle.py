@@ -5,7 +5,7 @@ from models.base import Base
 
 class Rectangle(Base):
     """class Rectangle that ingerit from base"""
-    #task 2,3
+    # task 2,3
     def __init__(self, width, height, x=0, y=0, id=None):
         """this function to define instance attribute """
         super().__init__(id)
@@ -61,10 +61,12 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
     # task 4
     def area(self):
         """this function to calculate rectangle area"""
         return self.__width * self.__height
+
     # task 5,7
     def display(self):
         """this function to that prints in stdout
@@ -73,6 +75,7 @@ class Rectangle(Base):
             print()
         for x in range(self.__height):
             print(" " * self.__x + "#" * self.__width, end="\n")
+
     # task 6
     def __str__(self):
         """this function to it returns
@@ -80,8 +83,8 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height
         )
-        
-    #task 8 & 9
+
+    # task 8 & 9
     def update(self, *args, **kwargs):
         """this function to Update the class Rectangle
         that assigns an argument to each attribute"""
@@ -93,8 +96,9 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-                
-    #task 13             
+
+    # task 13
     def to_dictionary(self):
-        return {"x": self.__x , "y": self.__y, "id": self.id,
+        """function returns the dictionary representation of a Rectangle"""
+        return {"x": self.__x, "y": self.__y, "id": self.id,
                 "height": self.__height, "width": self.__width}
