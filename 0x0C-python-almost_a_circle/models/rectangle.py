@@ -74,11 +74,15 @@ class Rectangle(Base):
             print(" " * self.__x + "#" * self.__width, end="\n")
 
     def __str__(self):
+        """this function to it returns
+        [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height
         )
 
     def update(self, *args):
+        """this function to Update the class Rectangle
+        that assigns an argument to each attribute"""
         if len(args) > 0:
             self.id = args[0]
         if len(args) > 1:
