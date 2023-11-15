@@ -15,7 +15,7 @@ class TestRectangle(unittest.TestCase):
         
     def test_constructor_without_id(self):
         obj = Rectangle(width=5, height=10, x=2, y=3)
-        self.assertEqual(obj.id, 2)
+        self.assertEqual(obj.id, 3)
         
     def test__with_width_height(self):
         obj = Rectangle(width=5, height=10)
@@ -30,6 +30,16 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError)
         
     def test_errors(self):
-        obj = Rectangle(0, 10)
+        obj = Rectangle(1, 10)
         self.assertRaises(ValueError)
+        
+    def test_area(self):
+        obj = Rectangle(2, 10)
+        self.assertEqual(obj.area(), 20)
+    
+    def test_area(self):
+        obj = Rectangle(2, 10, 1 , 4)
+        self.assertEqual(obj.area(), 20)
+        
+    
     
