@@ -67,6 +67,27 @@ class TestRectangle(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(obj)
             self.assertEqual(str_out.getvalue(), res)
+            
+    def test_display_with_x_y(self):
+        """ Test string printed """
+        r1 = Rectangle(3, 2)
+        res = "###\n###\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            r1.display()
+            self.assertEqual(str_out.getvalue(), res)
+
+        r1.x = 4
+        res = "    ###\n    ###\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            r1.display()
+            self.assertEqual(str_out.getvalue(), res)
+
+        r1.y = 2
+        res = "\n\n    ###\n    ###\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            r1.display()
+            self.assertEqual(str_out.getvalue(), res)
+        
         
 
 if __name__ == '__main__':
