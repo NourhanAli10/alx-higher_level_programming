@@ -3,6 +3,8 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+from io import StringIO
+import sys
 
 
 
@@ -41,5 +43,27 @@ class TestRectangle(unittest.TestCase):
         obj = Rectangle(2, 10, 1 , 4)
         self.assertEqual(obj.area(), 20)
         
-    
-    
+    # display rectangale   
+    def setUp(self):
+        # Redirect stdout for testing
+        self.saved_stdout = sys.stdout
+        sys.stdout = StringIO()
+
+    def tearDown(self):
+        # Restore stdout
+        sys.stdout = self.saved_stdout
+
+    def test_display(self):
+        obj = Rectangle(3, 2)
+        obj.display()
+
+        # Get the printed output
+        printed_output = sys.stdout.getvalue()
+
+        # Check if the printed output matches the expected pattern
+        expected_output = "###\n###\n"
+        self.assertEqual(printed_output, expected_output)
+        
+
+if __name__ == '__main__':
+    unittest.main()
