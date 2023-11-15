@@ -20,7 +20,7 @@ class TestRectangle(unittest.TestCase):
         
     def test_constructor_without_id(self):
         obj = Rectangle(width=5, height=10, x=2, y=3)
-        self.assertEqual(obj.id, 3)
+        self.assertEqual(obj.id, 4)
         
     def test__with_width_height(self):
         obj = Rectangle(width=5, height=10)
@@ -88,6 +88,27 @@ class TestRectangle(unittest.TestCase):
             r1.display()
             self.assertEqual(str_out.getvalue(), res)
         
+        
+        
+    def test_L_update_kwargs_2(self):
+
+        r1 = Rectangle(10, 10, 10, 10)
+        self.assertEqual(str(r1), "[Rectangle] (1) 10/10 - 10/10")
+
+        r1.update(89)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 10/10")
+
+        r1.update(89, 2)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 2/10")
+
+        r1.update(89, 2, 3)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 2/3")
+
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(str(r1), "[Rectangle] (89) 4/10 - 2/3")
+
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
         
 
 if __name__ == '__main__':
