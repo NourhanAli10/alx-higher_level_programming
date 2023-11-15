@@ -13,6 +13,7 @@ from io import StringIO
 
 class TestRectangle(unittest.TestCase):
     '''Tests the Rectangle class.'''
+    #task 2
 
     def test_constructor_with_id(self):
         obj = Rectangle(width=5, height=10, x=2, y=3, id=1)
@@ -25,7 +26,7 @@ class TestRectangle(unittest.TestCase):
     def test__with_width_height(self):
         obj = Rectangle(width=5, height=10)
         self.assertEqual(obj.x, 0)
-        
+    #task 3  
     def test_errors(self):
         obj = Rectangle("5", 10)
         self.assertRaises(TypeError)
@@ -37,7 +38,7 @@ class TestRectangle(unittest.TestCase):
     def test_errors(self):
         obj = Rectangle(1, 10)
         self.assertRaises(ValueError)
-        
+    #task 4   
     def test_area(self):
         obj = Rectangle(2, 10)
         self.assertEqual(obj.area(), 20)
@@ -46,7 +47,7 @@ class TestRectangle(unittest.TestCase):
         obj = Rectangle(2, 10, 1 , 4)
         self.assertEqual(obj.area(), 20)
         
-    # display rectangale   
+    # task 5   
     def test_display_2(self):
         """ Test string printed """
         r1 = Rectangle(2, 2)
@@ -60,14 +61,14 @@ class TestRectangle(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             r1.display()
             self.assertEqual(str_out.getvalue(), res)
-            
+    #task 6      
     def test_str(self):
         obj = Rectangle(4, 6, 2, 1, 2)
         res = "[Rectangle] (2) 2/1 - 4/6\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(obj)
             self.assertEqual(str_out.getvalue(), res)
-            
+    # task 7       
     def test_display_with_x_y(self):
         """ Test string printed """
         r1 = Rectangle(3, 2)
@@ -89,7 +90,7 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(str_out.getvalue(), res)
         
         
-        
+    #task 8  
     def test_update_kwargs(self):
         r1 = Rectangle(10, 10, 10, 10, 10)
         self.assertEqual(str(r1), "[Rectangle] (10) 10/10 - 10/10")
@@ -109,7 +110,7 @@ class TestRectangle(unittest.TestCase):
         r1.update(89, 2, 3, 4, 5)
         self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
         
-        
+    #task 9   
     def test_update_with_positional_args(self):
         my_rectangle = Rectangle(10, 20)
         my_rectangle.update(30, 40)
