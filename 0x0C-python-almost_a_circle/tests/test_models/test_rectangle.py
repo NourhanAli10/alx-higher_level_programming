@@ -1,10 +1,13 @@
 #!/usr/bin/python3
 '''Module for rectangle unit tests.'''
 import unittest
+from io import StringIO
+from unittest import TestCase
+from unittest.mock import patch
 from models.base import Base
 from models.rectangle import Rectangle
 from io import StringIO
-import sys
+
 
 
 
@@ -44,25 +47,19 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(obj.area(), 20)
         
     # display rectangale   
-    def setUp(self):
-        # Redirect stdout for testing
-        self.saved_stdout = sys.stdout
-        sys.stdout = StringIO()
+    def test_display_2(self):
+        """ Test string printed """
+        r1 = Rectangle(2, 2)
+        res = "##\n##\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            r1.display()
+            self.assertEqual(str_out.getvalue(), res)
 
-    def tearDown(self):
-        # Restore stdout
-        sys.stdout = self.saved_stdout
-
-    def test_display(self):
-        obj = Rectangle(3, 2)
-        obj.display()
-
-        # Get the printed output
-        printed_output = sys.stdout.getvalue()
-
-        # Check if the printed output matches the expected pattern
-        expected_output = "###\n###\n"
-        self.assertEqual(printed_output, expected_output)
+        r1.width = 5
+        res = "#####\n#####\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            r1.display()
+            self.assertEqual(str_out.getvalue(), res)
         
 
 if __name__ == '__main__':
