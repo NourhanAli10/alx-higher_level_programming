@@ -12,8 +12,10 @@ class TestBase(unittest.TestCase):
         obj = Base(id=5)
         self.assertEqual(obj.id, 5)
 
-    def test_constructor_without_id(self):
+    def test_auto_assign_id(self):
         obj1 = Base()
         obj2 = Base()
         self.assertEqual(obj1.id, 1)
-        self.assertEqual(obj2.id, 2)
+        self.assertEqual(obj2.id, 2)     
+        obj3 = Base()
+        self.assertEqual(obj3.id, 3)
