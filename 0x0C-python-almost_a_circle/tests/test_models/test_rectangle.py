@@ -60,6 +60,13 @@ class TestRectangle(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             r1.display()
             self.assertEqual(str_out.getvalue(), res)
+            
+    def test_str(self):
+        obj = Rectangle(4, 6, 2, 1, 2)
+        res = "[Rectangle] (2) 2/1 - 4/6\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(obj)
+            self.assertEqual(str_out.getvalue(), res)
         
 
 if __name__ == '__main__':
