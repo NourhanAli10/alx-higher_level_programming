@@ -7,10 +7,18 @@ from models.base import Base
 
 class TestBase(unittest.TestCase):
     '''Tests the Base class.'''
+    
+    def setUp(self):
+        """ Method invoked for each test """
+        Base._Base__nb_objects = 0
 
     def test_constructor_with_id(self):
-        obj = Base(id=5)
-        self.assertEqual(obj.id, 5)
+        obj = Base(1)
+        self.assertEqual(obj.id, 1)
+    
+    def test_constructor_without_id(self):
+        obj = Base()
+        self.assertEqual(obj.id, 1)
 
     def test_auto_assign_id(self):
         obj1 = Base()
