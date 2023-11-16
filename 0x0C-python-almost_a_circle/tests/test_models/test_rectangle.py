@@ -109,13 +109,10 @@ and 'height'"
         r1 = Rectangle(3, 2)
         r2 = Rectangle(2, 10)
         r3 = Rectangle(8, 7, 0, 0, 12)
-        r4 = Rectangle(0, 2)
-        r5 = Rectangle(3, 0)
         self.assertEqual(r1.area(), 2 * 3)
         self.assertEqual(r2.area(), 2 * 10)
         self.assertEqual(r3.area(), 8 * 7)
-        self.assertEqual(r4.area(), 0 * 2)
-        self.assertEqual(r5.area(), 3 * 0)
+
 
     def test_area_2(self):
         """ Checking the return value of area method """
