@@ -86,16 +86,36 @@ class Rectangle(Base):
 
     # task 8 & 9
     def update(self, *args, **kwargs):
-        """this function to Update the class Rectangle
-        that assigns an argument to each attribute"""
-        if args:
-            if len(args) >= 1:
-                self.width = args[0]
-            if len(args) >= 2:
-                self.height = args[1]
-        else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+        """assigns an argument to each attribute
+        Args:
+            args (int): arguments to send a non-keyworded variable
+                length argument list to the function
+            kwargs (dict): keyworded variable length of arguments
+        """
+        if args is not None and len(args) != 0:
+            for i in range(len(args)):
+                if i == 0:
+                    self.id = args[i]
+                elif i == 1:
+                    self.__width = args[i]
+                elif i == 2:
+                    self.__height = args[i]
+                elif i == 3:
+                    self.__x = args[i]
+                elif i == 4:
+                    self.__y = args[i]
+        elif kwargs is not None and len(kwargs) != 0:
+            for key in kwargs:
+                if key == "id":
+                    self.id = kwargs[key]
+                elif key == "width":
+                    self.__width = kwargs[key]
+                elif key == "height":
+                    self.__height = kwargs[key]
+                elif key == "x":
+                    self.__x = kwargs[key]
+                elif key == "y":
+                    self.__y = kwargs[key]
 
     # task 13
     def to_dictionary(self):
