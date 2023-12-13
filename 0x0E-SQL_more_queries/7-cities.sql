@@ -6,5 +6,5 @@ CREATE TABLE IF NOT EXISTS `cities` (
     id INT AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
     name VARCHAR(256) NOT NULL,
     state_id INT NOT NULL,
-    FOREGIN KEY (state_id) REFERENCES states(state_id)
-)
+    FOREGIN KEY (state_id) REFERENCES states(id)
+);
