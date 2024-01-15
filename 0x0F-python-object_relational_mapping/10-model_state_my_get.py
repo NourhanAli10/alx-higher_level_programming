@@ -12,16 +12,13 @@ from model_state import Base, State
 if __name__ == "__main__":
     # Check if correct number of arguments is provided
     if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state name>"
-              .format(sys.argv[0]))
+        print("Usage: {} <username> <password> <database> <state name>".format(sys.argv[0]))
         sys.exit(1)
 
     # Connect to MySQL server running on localhost at port 3306
-    username, password, database, state_name = sys.argv[1],
-    sys.argv[2], sys.argv[3], sys.argv[4]
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, database),
-                           pool_pre_ping=True)
+    username, password, database, state_name = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+        username, password, database), pool_pre_ping=True)
 
     # Create a session
     Session = sessionmaker(bind=engine)
