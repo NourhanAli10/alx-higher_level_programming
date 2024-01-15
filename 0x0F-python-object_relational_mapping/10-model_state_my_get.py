@@ -17,8 +17,10 @@ if __name__ == "__main__":
 
     # Connect to MySQL server running on localhost at port 3306
     username, password, database, state_name = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        username, password, database), pool_pre_ping=True)
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+            username, password, database),
+        pool_pre_ping=True)
 
     # Create a session
     Session = sessionmaker(bind=engine)
