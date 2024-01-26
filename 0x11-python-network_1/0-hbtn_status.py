@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import urllib.request
 
+
 def fetch_status(url):
     """
     Fetches the status from the given URL using urllib.
@@ -9,7 +10,8 @@ def fetch_status(url):
         url (str): The URL to fetch the status from.
 
     Returns:
-        dict: A dictionary containing the type, content, and utf8 content of the response.
+        dict: A dictionary containing the type, content,
+        and utf8 content of the response.
     """
     with urllib.request.urlopen(url) as response:
         html = response.read()
@@ -19,6 +21,7 @@ def fetch_status(url):
             "content": html,
             "utf8_content": utf8_content
         }
+
 
 if __name__ == "__main__":
     url = "https://alx-intranet.hbtn.io/status"
