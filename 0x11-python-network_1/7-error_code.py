@@ -9,4 +9,4 @@ if __name__ == "__main__":
     response = requests.get(Url)
     print(response.text)
     if response.status_code >= 400:
-        print("Error code: ", response.status_code)
+        print("Error code:", response.status_code)
