@@ -9,8 +9,7 @@ import sys
 if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
-    
-    params = {'email' : email}
+    params = {'email': email}
     data = urllib.parse.urlencode(params)
     data = data.encode('ascii')
     req = URL.Request(url, data)
