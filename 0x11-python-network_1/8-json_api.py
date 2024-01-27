@@ -6,12 +6,12 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    letter = sys.argv[1]
     url = "http://0.0.0.0:5000/search_user"
     if len(sys.argv) > 1:
-        params = {'q': letter}
+        letter = sys.argv[1]    
     else:
-        params = {'q': ""}
+        lertter = ""
+    params = {'q': letter}
     try:
         response = requests.post(url, data=params)
         response_json = response.json()
